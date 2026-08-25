@@ -4,45 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Purpose
 
-This repo tracks LinkedIn job posts matched against Miroljub's CV. Jobs are collected via the LinkedIn MCP server (`stickerdaniel/linkedin-mcp-server`, tools prefixed `mcp__MCP_Server_for_LinkedIn__`), scored against the CV, and stored as JSON per country. A GitHub Pages UI (`docs/index.html`) reads the JSON via the GitHub API and writes status changes back as commits.
+This repo automates collecting LinkedIn job posts for Miroljub and scoring them against his CV. Jobs are found via the LinkedIn MCP server (`stickerdaniel/linkedin-mcp-server`, tools prefixed `mcp__MCP_Server_for_LinkedIn__`), scored 0–100 against the CV, and stored in a **Google Sheet** in the user's Drive — one tab per country (currently `sweden`, `denmark`). The user manages application status (`open`, `applied`, `in-progress`, `denied`) directly in Google Sheets; this repo never changes an existing row's status.
 
-## Layout
+There is no build, lint, or test setup — the repo is documentation, one Apps Script, and one Python client with no dependencies beyond python3 stdlib.
 
-- `jobs/<country>/jobs.json` — one file per country (currently `sweden`, `denmark`). A flat JSON array; each entry:
-  ```json
-  {
-    "url": "https://www.linkedin.com/jobs/view/<id>/",
-    "title": "Job title",
-    "company": "Company name",
-    "match": 85,
-    "status": "open",
-    "added": "2026-08-25"
-  }
-  ```
-  - `url` is the canonical LinkedIn job URL and the **dedupe key** — never add an entry whose job ID already exists in any country file.
-  - `match` is 0–100, scored against the CV (see `SEARCHING.md` for the rubric).
-  - `status` is one of `open`, `applied`, `in-progress`, `denied`. New entries always start as `open`. **Only the user (via the Pages UI or explicitly in chat) moves a job out of `open`** — never change an existing entry's status during a populate run.
-- `cv/` — git submodule of https://github.com/miroljub1995/cv containing `cv.pdf`. Run `git submodule update --init` after a fresh clone.
-- `CV-SUMMARY.md` — extracted text summary of the CV used for match scoring (regenerate from `cv/cv.pdf` if the submodule is updated).
-- `SEARCHING.md` — the search playbook: which queries to run per country, dedupe rules, and the match-scoring rubric.
-- `.claude/skills/populate-jobs/` — the skill the daily scheduled run invokes.
-- `docs/` — the GitHub Pages status board. Served from the `main` branch `/docs` folder. It reads `jobs/*/jobs.json` through the GitHub Contents API and commits status changes back, so **always push after modifying job files** or the UI shows stale data (and a later UI commit could clobber unpushed local edits).
+## Data flow
 
-## Common tasks
-
-- **Populate jobs** (the daily task): invoke the `populate-jobs` skill. It stops when the total count of `open` jobs across all countries reaches 100.
-- **Validate JSON** after edits:
+- **Store:** Google Sheet, accessed through an Apps Script web app bound to it ([apps-script/Code.gs](apps-script/Code.gs), deployed per [SHEET-SETUP.md](SHEET-SETUP.md)). Columns: `Post URL | Company | Match (%) | Status | Title | Added`. The Post URL is the dedupe key across all tabs.
+- **Client:** [scripts/sheet.py](scripts/sheet.py) — the only way code here touches the sheet:
   ```bash
-  for f in jobs/*/jobs.json; do python3 -m json.tool "$f" > /dev/null && echo "OK $f"; done
+  python3 scripts/sheet.py list              # all rows + open/total counts
+  python3 scripts/sheet.py append < rows.json # append; bridge dedupes by URL, sorts by match desc
   ```
-- **Count open jobs**:
-  ```bash
-  python3 -c "import json,glob; print(sum(sum(1 for j in json.load(open(f)) if j['status']=='open') for f in glob.glob('jobs/*/jobs.json')))"
-  ```
+  `rows.json` is an array of `{country, url, company, match, status, title, added}`.
+- **Config:** `sheet-config.json` (repo root, gitignored) holds the web-app `endpoint` and the shared `secret`, which must match `SECRET` in `Code.gs`. If it's missing or empty, the sheet isn't set up — point the user to SHEET-SETUP.md instead of improvising another storage.
+- **CV:** `cv/` is a git submodule of https://github.com/miroljub1995/cv (`git submodule update --init` after fresh clone). [CV-SUMMARY.md](CV-SUMMARY.md) is the extracted text used for scoring; regenerate it from `cv/cv.pdf` if the submodule updates.
+
+## The populate flow
+
+The `populate-jobs` skill (`.claude/skills/populate-jobs/`) runs daily at 10:00 via a scheduled task and on demand. It stops permanently once **100 jobs are `open`** in total. [SEARCHING.md](SEARCHING.md) is the playbook: per-country queries, URL normalization/dedupe rules, and the match-scoring rubric. Follow it rather than inventing queries or scores.
+
+Adding a country = add its queries to `SEARCHING.md`; the tab appears automatically on first append.
 
 ## Conventions
 
-- Keep each `jobs.json` sorted by `match` descending so the best matches are on top.
-- Commit messages for populate runs: `populate: <n> new jobs (<country>: <n>, ...)`. Push to `main` after every populate run.
-- Adding a country = create `jobs/<country>/jobs.json` with `[]` and add search queries for it in `SEARCHING.md`; the Pages UI discovers country folders automatically.
-- The status-change commits made by the Pages UI touch only one country file at a time; pull before local edits to avoid conflicts.
+- New rows always get `status: "open"` and `added: <today, yyyy-mm-dd>`. Only add jobs with match ≥ 50.
+- Never edit the sheet through any path other than `scripts/sheet.py` (no Drive UI automation, no direct Sheets API).
+- If `Code.gs` changes, the user must redeploy it manually in the Apps Script editor — tell them, don't assume the deployed version updated.

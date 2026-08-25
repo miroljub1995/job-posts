@@ -2,6 +2,8 @@
 
 How to find LinkedIn job posts and score them. Used by the `populate-jobs` skill; also usable manually in any Claude Code session with the LinkedIn MCP server connected.
 
+Countries currently tracked: **Sweden**, **Denmark** (one Google Sheet tab each; a new country just needs its queries added here).
+
 ## Target profile
 
 Fullstack / backend developer centered on **.NET / C#**, with frontend experience in **Vue** and **React**. See `CV-SUMMARY.md` for the full skill list used in scoring.
@@ -27,7 +29,7 @@ Notes:
 The LinkedIn job ID (the number in the URL, e.g. `4012345678` in `https://www.linkedin.com/jobs/view/4012345678/`) is the identity of a post:
 
 - Normalize every URL to `https://www.linkedin.com/jobs/view/<id>/` (strip tracking query params).
-- Skip any ID already present in **any** country's `jobs.json`, regardless of status — a job that was denied or applied to must not reappear.
+- Skip any ID already present in **any** tab of the sheet (`scripts/sheet.py list`), regardless of status — a job that was denied or applied to must not reappear. The bridge also drops exact URL duplicates on append as a backstop.
 
 ## Scoring (`match`)
 
@@ -45,4 +47,10 @@ Apply modifiers after picking the band: −10 if the posting requires fluent Swe
 
 ## Adding entries
 
-Append to the country's `jobs.json` with `status: "open"` and `added` set to today's date, then re-sort the array by `match` descending. Validate the JSON and push (see CLAUDE.md conventions).
+Append via the sheet bridge with `status: "open"` and `added` set to today's date (`yyyy-mm-dd`):
+
+```bash
+python3 scripts/sheet.py append < rows.json
+```
+
+where `rows.json` is an array of `{country, url, company, match, status, title, added}` (`country` lowercase, matching the tab name). The bridge sorts each tab by match descending automatically.
