@@ -1320,3 +1320,5 @@ ID,Posted,Decision,Match (%),Reason
 31413443,2026-08-29,skip,,prescreen: no .NET/C# mention
 31412634,2026-08-28,include,47,postgresql
 31412904,2026-08-28,exclude,,swedish-required
+31420374,2026-08-31,skip,,prescreen: no .NET/C# mention
+31420382,2026-08-31,skip,,prescreen: no .NET/C# mention
