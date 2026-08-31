@@ -1300,3 +1300,23 @@ ID,Posted,Decision,Match (%),Reason
 31409773,2026-08-28,include,40,none
 31410795,2026-08-28,include,53,"react,postgresql"
 31412028,2026-08-28,exclude,,swedish-required
+31412413,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412417,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412501,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412593,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412671,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412687,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412813,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412815,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412845,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412896,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412995,2026-08-28,skip,,prescreen: no .NET/C# mention
+31413113,2026-08-28,skip,,prescreen: no .NET/C# mention
+31413090,2026-08-28,skip,,prescreen: no .NET/C# mention
+31413094,2026-08-28,skip,,prescreen: no .NET/C# mention
+31413124,2026-08-28,skip,,prescreen: no .NET/C# mention
+31413104,2026-08-28,skip,,prescreen: no .NET/C# mention
+31413262,2026-08-28,skip,,prescreen: no .NET/C# mention
+31413443,2026-08-29,skip,,prescreen: no .NET/C# mention
+31412634,2026-08-28,include,47,postgresql
+31412904,2026-08-28,exclude,,swedish-required
