@@ -98,8 +98,14 @@ def main():
 
     ad = cache[0]
     address = (ad.get("workplace_address") or {}).get("municipality") or "—"
-    languages = [item["label"] for item in
-                 (ad.get("must_have") or {}).get("languages") or []]
+    # The /search projection for must_have.languages is unreliable (often
+    # null even when the employer set a required language), so this is
+    # looked up directly against /ad/{id} instead. See fetch_required_languages.
+    languages = lib.fetch_required_languages(ad["id"])
+    if languages is None:
+        languages_line = "unknown — language lookup failed, judge from description text only"
+    else:
+        languages_line = ", ".join(languages) or "none"
     if skipped:
         print("(prescreen skipped %d ad(s) to reach this one)" % skipped)
     print("=== AD %s === (%d cached, judge this one only)" % (ad["id"], len(cache)))
@@ -112,7 +118,7 @@ def main():
         (ad.get("working_hours_type") or {}).get("label") or "—",
         address,
     ))
-    print("Declared required languages: %s" % (", ".join(languages) or "none"))
+    print("Declared required languages: %s" % languages_line)
     print("Headline: %s" % ad.get("headline", ""))
     print("--- description ---")
     print(prune(ad, args.max_chars))

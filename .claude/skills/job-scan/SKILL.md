@@ -70,17 +70,32 @@ score it, do not add it to `jobs.csv`.
 
 **.NET is the only stack requirement.** The role must have the person writing
 C#/.NET. A backend-only .NET role qualifies — it is not excluded for lacking a
-frontend, it just scores lower than one that also names Vue or React. Excluded are roles built on
-another stack: Java, Node, Go, Python, PHP backends. An ad that merely lists
-.NET among technologies the company happens to use, while the role itself is
-something else (a Java position at a .NET shop, a pure QA or support role), does
-not qualify.
+frontend, it just scores lower than one that also names Vue or React. It
+qualifies too if C#/.NET is simply named among the role's required or
+preferred skills, even if the ad also lists other languages/stacks
+(Python, Java, C++, etc.) as alternatives or complements — the person may end
+up writing C#/.NET some or all of the time, and that's enough. Excluded are
+roles where C#/.NET is not part of the role's own skill list at all — it's
+mentioned only as something the company or a *different* team/position uses
+(a Java position at a .NET shop, a pure QA or support role).
 
 **Swedish.** An ad *written* in Swedish is not an ad that *requires* Swedish —
-most Swedish ads are written in Swedish. Exclude only on an explicit
-requirement: "flytande svenska", "svenska i tal och skrift", "du talar och
-skriver svenska", or `Declared required languages` naming Swedish. Phrases like
-"Swedish is a plus" or "English is our working language" are not exclusions.
+most Swedish ads are written in Swedish. Exclude when either of two signals
+says Swedish is required:
+
+- Prose stating it explicitly: "flytande svenska", "svenska i tal och skrift",
+  "du talar och skriver svenska". Phrases like "Swedish is a plus" or "English
+  is our working language" are not exclusions.
+- `Declared required languages` naming Swedish. This is looked up per-ad
+  directly against the Arbetsförmedlingen ad-detail API (not the search
+  results) because the employer's structured language requirement is often
+  present there even when the prose never mentions it — the MCT Brattberg ad
+  (31166878) is a confirmed case: no language requirement anywhere in the
+  text, but `must_have.languages` listed Swedish at weight 10. Treat this
+  field as authoritative when present, even if it contradicts your prose
+  reading. If the line instead reads "unknown — language lookup failed",
+  the API call itself failed; fall back to prose-only judgment for that ad
+  and don't treat the failure as "no requirement".
 
 **Visa.** Exclude when the ad rules sponsorship out: "we do not sponsor visas",
 "we cannot support relocation or work permits", "you must already hold a valid

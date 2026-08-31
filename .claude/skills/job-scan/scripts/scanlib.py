@@ -18,6 +18,7 @@ import urllib.parse
 import urllib.request
 
 API = "https://jobsearch.api.jobtechdev.se/search"
+AD_API = "https://jobsearch.api.jobtechdev.se/ad"
 
 # Taxonomy conceptIds (SSYK level 4) for the two occupation groups worth
 # scanning. Narrower than the whole Data/IT field, which also sweeps in support
@@ -44,7 +45,7 @@ LOG_FIELDS = ["ID", "Posted", "Decision", "Match (%)", "Reason"]
 X_FIELDS = (
     "total{value},hits{id,headline,publication_date,webpage_url,employer{name},"
     "description{text},occupation{label},working_hours_type{label},"
-    "workplace_address{municipality},must_have{languages{label}},"
+    "workplace_address{municipality},"
     "application_deadline}"
 )
 
@@ -173,3 +174,22 @@ def search(cursor, limit, extra=None):
     except urllib.error.HTTPError as exc:
         body = exc.read().decode(errors="replace")[:400]
         raise SystemExit("API error %s for %s\n%s" % (exc.code, url, body))
+
+
+def fetch_required_languages(ad_id):
+    """The /search endpoint's must_have{languages} projection is unreliable —
+    it comes back null even for ads where the employer set a required
+    language (verified against /ad/{id}, which is accurate). Fetch the ad
+    detail directly instead. Returns a list of language labels (e.g.
+    ["Svenska", "Engelska"]), or None if the lookup itself failed (network
+    error) — callers should fall back to prose-only judgment in that case,
+    not treat None as "no requirement"."""
+    url = "%s/%s" % (AD_API, ad_id)
+    req = urllib.request.Request(url, headers={"accept": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            data = json.load(resp)
+    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError):
+        return None
+    languages = (data.get("must_have") or {}).get("languages") or []
+    return [item["label"] for item in languages]
