@@ -911,3 +911,9 @@ ID,Posted,Decision,Match (%),Reason
 31367094,2026-08-18,exclude,,swedish-required
 31367612,2026-08-18,include,60,"aws,kubernetes,docker"
 31368125,2026-08-18,include,40,none
+31371444,2026-08-19,include,47,aws
+31372875,2026-08-19,exclude,,swedish-required
+31373306,2026-08-19,exclude,,swedish-required
+31374503,2026-08-20,exclude,,swedish-required
+31374594,2026-08-20,exclude,,swedish-required
+31374786,2026-08-20,exclude,,swedish-required
