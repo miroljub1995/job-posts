@@ -1298,3 +1298,5 @@ ID,Posted,Decision,Match (%),Reason
 31406819,2026-08-27,exclude,,swedish-required
 31406976,2026-08-27,include,47,react
 31409773,2026-08-28,include,40,none
+31410795,2026-08-28,include,53,"react,postgresql"
+31412028,2026-08-28,exclude,,swedish-required
