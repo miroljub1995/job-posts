@@ -1206,3 +1206,95 @@ ID,Posted,Decision,Match (%),Reason
 31398799,2026-08-26,exclude,,swedish-required
 31400819,2026-08-26,exclude,,swedish-required
 31403301,2026-08-27,exclude,,swedish-required
+31403711,2026-08-27,skip,,prescreen: no .NET/C# mention
+31403713,2026-08-27,skip,,prescreen: no .NET/C# mention
+31403780,2026-08-27,skip,,prescreen: no .NET/C# mention
+31403878,2026-08-27,skip,,prescreen: no .NET/C# mention
+31403949,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404105,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404237,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404242,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404250,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404471,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404707,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404741,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404830,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404925,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405273,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405467,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405549,2026-08-27,skip,,prescreen: no .NET/C# mention
+31404823,2026-08-27,skip,,prescreen: no .NET/C# mention
+31395863,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405608,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405741,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405779,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405827,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405870,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405901,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405925,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405907,2026-08-27,skip,,prescreen: no .NET/C# mention
+31405873,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406001,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406006,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406272,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406319,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406504,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406522,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406529,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406559,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406565,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406811,2026-08-27,skip,,prescreen: no .NET/C# mention
+31406859,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407012,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407099,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407107,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407109,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407158,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407272,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407274,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407763,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407833,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407904,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407906,2026-08-27,skip,,prescreen: no .NET/C# mention
+31407908,2026-08-27,skip,,prescreen: no .NET/C# mention
+31408165,2026-08-28,skip,,prescreen: no .NET/C# mention
+31408448,2026-08-28,skip,,prescreen: no .NET/C# mention
+31408518,2026-08-28,skip,,prescreen: no .NET/C# mention
+31408714,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409118,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409251,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409357,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409377,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409470,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409477,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409547,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409595,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409708,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409822,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409838,2026-08-28,skip,,prescreen: no .NET/C# mention
+31409837,2026-08-28,skip,,prescreen: no .NET/C# mention
+31410025,2026-08-28,skip,,prescreen: no .NET/C# mention
+31410013,2026-08-28,skip,,prescreen: no .NET/C# mention
+31410251,2026-08-28,skip,,prescreen: no .NET/C# mention
+31410315,2026-08-28,skip,,prescreen: no .NET/C# mention
+31410394,2026-08-28,skip,,prescreen: no .NET/C# mention
+31410510,2026-08-28,skip,,prescreen: no .NET/C# mention
+31410572,2026-08-28,skip,,prescreen: no .NET/C# mention
+31411022,2026-08-28,skip,,prescreen: no .NET/C# mention
+31411300,2026-08-28,skip,,prescreen: no .NET/C# mention
+31411598,2026-08-28,skip,,prescreen: no .NET/C# mention
+31411613,2026-08-28,skip,,prescreen: no .NET/C# mention
+31411997,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412071,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412091,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412111,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412121,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412142,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412214,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412227,2026-08-28,skip,,prescreen: no .NET/C# mention
+31412278,2026-08-28,skip,,prescreen: no .NET/C# mention
+31404505,2026-08-27,include,80,"react,aws,postgresql,redis,docker,kubernetes"
+31406310,2026-08-27,exclude,,swedish-required
+31406819,2026-08-27,exclude,,swedish-required
+31406976,2026-08-27,include,47,react
+31409773,2026-08-28,include,40,none
