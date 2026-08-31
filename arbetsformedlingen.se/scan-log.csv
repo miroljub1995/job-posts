@@ -1004,3 +1004,6 @@ ID,Posted,Decision,Match (%),Reason
 31377229,2026-08-20,exclude,,swedish-required
 31377305,2026-08-20,exclude,,swedish-required
 31377318,2026-08-20,include,53,"aws,kubernetes"
+31377833,2026-08-20,include,53,"react,aws"
+31377859,2026-08-20,include,47,aws
+31378859,2026-08-20,include,40,none
