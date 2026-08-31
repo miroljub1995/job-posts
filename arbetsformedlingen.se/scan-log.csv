@@ -810,3 +810,9 @@ ID,Posted,Decision,Match (%),Reason
 31345373,2026-08-12,include,40,none
 31347308,2026-08-13,exclude,,swedish-required
 31347544,2026-08-13,include,53,"docker,kubernetes"
+31347680,2026-08-13,exclude,,no-dotnet
+31348074,2026-08-13,include,47,rabbitmq
+31348224,2026-08-13,exclude,,swedish-required
+31348468,2026-08-13,include,40,none
+31351197,2026-08-13,exclude,,swedish-required
+31352253,2026-08-14,include,40,none
