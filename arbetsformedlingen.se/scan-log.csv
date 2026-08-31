@@ -1007,3 +1007,8 @@ ID,Posted,Decision,Match (%),Reason
 31377833,2026-08-20,include,53,"react,aws"
 31377859,2026-08-20,include,47,aws
 31378859,2026-08-20,include,40,none
+31378851,2026-08-20,include,53,"docker,github"
+31378912,2026-08-20,exclude,,swedish-required
+31379756,2026-08-21,exclude,,swedish-required
+31379874,2026-08-21,include,47,vue
+31379924,2026-08-21,include,47,aws
