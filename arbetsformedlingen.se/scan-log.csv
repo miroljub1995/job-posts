@@ -627,3 +627,10 @@ ID,Posted,Decision,Match (%),Reason
 31276668,2026-07-16,include,60,"kubernetes,aws,docker"
 31281556,2026-07-20,exclude,,swedish-required
 31286576,2026-07-21,include,53,"react,docker"
+31290281,2026-07-23,exclude,,swedish-required
+31299116,2026-07-28,include,53,"react,aws"
+30314303,2026-08-01,include,47,react
+31309562,2026-08-02,exclude,,no-dotnet
+31310179,2026-08-03,exclude,,swedish-required
+31310164,2026-08-03,exclude,,swedish-required
+31312446,2026-08-03,exclude,,swedish-required
