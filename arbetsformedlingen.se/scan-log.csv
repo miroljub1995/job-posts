@@ -122,6 +122,6 @@ ID,Posted,Decision,Match (%),Reason
 31420175,2026-08-31,skip,,prescreen: no .NET/C# mention
 31415844,2026-08-31,include,47,redis
 31416280,2026-08-31,exclude,,no-dotnet
-31416768,2026-08-31,exclude,,no-dotnet
-31417936,2026-08-31,exclude,,no-dotnet
+31416768,2026-08-31,include,40,none
+31417936,2026-08-31,exclude,,no-visa-sponsorship
 31419414,2026-08-31,exclude,,swedish-required

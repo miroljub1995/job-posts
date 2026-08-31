@@ -70,11 +70,14 @@ score it, do not add it to `jobs.csv`.
 
 **.NET is the only stack requirement.** The role must have the person writing
 C#/.NET. A backend-only .NET role qualifies — it is not excluded for lacking a
-frontend, it just scores lower than one that also names Vue or React. Excluded are roles built on
-another stack: Java, Node, Go, Python, PHP backends. An ad that merely lists
-.NET among technologies the company happens to use, while the role itself is
-something else (a Java position at a .NET shop, a pure QA or support role), does
-not qualify.
+frontend, it just scores lower than one that also names Vue or React. It
+qualifies too if C#/.NET is simply named among the role's required or
+preferred skills, even if the ad also lists other languages/stacks
+(Python, Java, C++, etc.) as alternatives or complements — the person may end
+up writing C#/.NET some or all of the time, and that's enough. Excluded are
+roles where C#/.NET is not part of the role's own skill list at all — it's
+mentioned only as something the company or a *different* team/position uses
+(a Java position at a .NET shop, a pure QA or support role).
 
 **Swedish.** An ad *written* in Swedish is not an ad that *requires* Swedish —
 most Swedish ads are written in Swedish. Exclude only on an explicit
