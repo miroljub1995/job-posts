@@ -67,9 +67,9 @@ ID,Posted,Decision,Match (%),Reason
 31414062,2026-08-30,include,47,redis
 31414342,2026-08-30,exclude,,swedish-required
 31414759,2026-08-31,exclude,,swedish-required
-31415844,2026-08-31,include,47,redis
+31415844,2026-08-31,exclude,,swedish-required
 31416280,2026-08-31,exclude,,no-dotnet
-31416768,2026-08-31,include,40,none
+31416768,2026-08-31,exclude,,swedish-required
 31417936,2026-08-31,exclude,,no-visa-sponsorship
 31419414,2026-08-31,exclude,,swedish-required
 30701603,2026-03-05,skip,,prescreen: no .NET/C# mention
@@ -342,7 +342,7 @@ ID,Posted,Decision,Match (%),Reason
 31164073,2026-06-10,include,47,react
 31164104,2026-06-10,include,47,react
 31165676,2026-06-10,exclude,,swedish-required
-31166878,2026-06-11,include,47,vue
+31166878,2026-06-11,exclude,,swedish-required
 31167227,2026-06-11,include,40,none
 31167248,2026-06-11,include,40,none
 31167278,2026-06-11,include,40,none
@@ -628,7 +628,7 @@ ID,Posted,Decision,Match (%),Reason
 31281556,2026-07-20,exclude,,swedish-required
 31286576,2026-07-21,include,53,"react,docker"
 31290281,2026-07-23,exclude,,swedish-required
-31299116,2026-07-28,include,53,"react,aws"
+31299116,2026-07-28,exclude,,swedish-required
 30314303,2026-08-01,include,47,react
 31309562,2026-08-02,exclude,,no-dotnet
 31310179,2026-08-03,exclude,,swedish-required
@@ -811,7 +811,7 @@ ID,Posted,Decision,Match (%),Reason
 31347308,2026-08-13,exclude,,swedish-required
 31347544,2026-08-13,include,53,"docker,kubernetes"
 31347680,2026-08-13,exclude,,no-dotnet
-31348074,2026-08-13,include,47,rabbitmq
+31348074,2026-08-13,exclude,,swedish-required
 31348224,2026-08-13,exclude,,swedish-required
 31348468,2026-08-13,include,40,none
 31351197,2026-08-13,exclude,,swedish-required
