@@ -1,2 +1,4 @@
 arbetsformedlingen.se/.scan-cache.json
 *.tmp
+__pycache__/
+*.pyc
