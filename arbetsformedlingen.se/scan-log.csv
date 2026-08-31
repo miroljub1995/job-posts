@@ -323,3 +323,27 @@ ID,Posted,Decision,Match (%),Reason
 31165035,2026-06-10,skip,,prescreen: no .NET/C# mention
 31166593,2026-06-11,skip,,prescreen: no .NET/C# mention
 31065311,2026-05-21,exclude,,swedish-required
+31065562,2026-05-21,include,53,"kubernetes,docker"
+31071023,2026-05-22,include,47,kubernetes
+31107079,2026-05-30,exclude,,swedish-required
+31111396,2026-06-01,exclude,,no-dotnet
+31126100,2026-06-02,exclude,,swedish-required
+31127356,2026-06-02,include,40,none
+31130652,2026-06-03,exclude,,swedish-required
+31130704,2026-06-03,exclude,,swedish-required
+31136666,2026-06-03,include,40,none
+31139798,2026-06-04,include,53,"react,kubernetes"
+31140563,2026-06-04,include,60,"react,aws,mongodb"
+31146059,2026-06-05,exclude,,swedish-required
+31156804,2026-06-09,exclude,,no-visa-sponsorship
+31164048,2026-06-10,include,47,react
+31164053,2026-06-10,include,47,react
+31164066,2026-06-10,include,47,react
+31164073,2026-06-10,include,47,react
+31164104,2026-06-10,include,47,react
+31165676,2026-06-10,exclude,,swedish-required
+31166878,2026-06-11,include,47,vue
+31167227,2026-06-11,include,40,none
+31167248,2026-06-11,include,40,none
+31167278,2026-06-11,include,40,none
+31167283,2026-06-11,include,40,none
