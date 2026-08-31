@@ -2,8 +2,21 @@
 
 Tracking of Swedish job ads from [Platsbanken](https://arbetsformedlingen.se/platsbanken).
 
-- `jobs.csv` — the tracked ads.
-- `fetch_jobs.py` — fills `jobs.csv` from the public JobSearch API (stdlib only, no API key).
+- `jobs.csv` — the tracked ads, sorted by `Posted` ascending.
+- `scan-log.csv` — one row per decision made by the `job-scan` skill, including
+  the ads it skipped and why. The audit trail, and what keeps a rescan from
+  re-judging the same ad.
+- `.scan-state.json` — the scan cursor. Committed, so any session can resume.
+- `fetch_jobs.py` — bulk fills `jobs.csv` from the API with no judgement applied.
+
+Two ways to fill the file:
+
+- **`job-scan` skill** (`.claude/skills/job-scan/`) — walks new software
+  developer ads one at a time, scores each against the C#/.NET profile, and
+  keeps only the ones that pass. This is the normal path; ask Claude to scan or
+  continue the job list.
+- **`fetch_jobs.py`** — a raw dump of whatever a search returns, unscored.
+  Useful for ad-hoc queries, not for maintaining the shortlist.
 
 ## jobs.csv
 
@@ -13,7 +26,8 @@ Tracking of Swedish job ads from [Platsbanken](https://arbetsformedlingen.se/pla
 | `Post URL` | API `webpage_url` | `https://arbetsformedlingen.se/platsbanken/annonser/{ID}` |
 | `Company` | API `employer.name` | |
 | `Posted` | API `publication_date` | Date only, `YYYY-MM-DD`. |
-| `Match (%)` | manual, or `--relevance-as-match` | The API has no personal match score; `--relevance-as-match` fills this from the search `relevance` score (0–1 → 0–100), which is relative to *your query*, not to a profile. |
+| `Match (%)` | `job-scan` skill | 0–100 against the target profile: 40 for a C#/.NET role, plus 60 spread evenly over nine bonus items it names (vue or react, aws, rabbitmq, postgresql, mongodb, kubernetes, docker, github, redis). `fetch_jobs.py --relevance-as-match` instead fills it with the API's query relevance, which is a different thing. |
+| `Visa` | `job-scan` skill | `true` only when the ad states it sponsors visas; `false` when it says nothing. Ads that state they do *not* sponsor are excluded outright. |
 | `Status` | manual | Free text, e.g. `applied`, `rejected`, `interview`. |
 
 Rows are keyed by `ID`. Re-running the script only appends ads that are not already

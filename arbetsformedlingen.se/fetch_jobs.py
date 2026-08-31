@@ -24,7 +24,7 @@ import urllib.request
 
 API = "https://jobsearch.api.jobtechdev.se/search"
 CSV_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "jobs.csv")
-FIELDS = ["ID", "Post URL", "Company", "Posted", "Match (%)", "Status"]
+FIELDS = ["ID", "Post URL", "Company", "Posted", "Match (%)", "Visa", "Status"]
 
 # Only ask the API for what ends up in the CSV; keeps responses small.
 X_FIELDS = "total{value},hits{id,headline,publication_date,relevance,webpage_url,employer{name}}"
@@ -108,6 +108,9 @@ def row_from_hit(hit, with_match):
         # Date only; the API returns an ISO timestamp.
         "Posted": (hit.get("publication_date") or "")[:10],
         "Match (%)": match,
+        # Left blank: only the job-scan skill, which reads the ad text, can
+        # tell whether visa sponsorship is mentioned.
+        "Visa": "",
         "Status": "",
     }
 
