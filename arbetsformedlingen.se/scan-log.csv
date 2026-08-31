@@ -1101,3 +1101,8 @@ ID,Posted,Decision,Match (%),Reason
 31384992,2026-08-22,exclude,,swedish-required
 31386031,2026-08-24,exclude,,swedish-required
 31387269,2026-08-24,include,53,"docker,aws"
+31388033,2026-08-24,include,80,"aws,postgresql,mongodb,redis,rabbitmq,docker"
+31389343,2026-08-24,exclude,,swedish-required
+31389700,2026-08-24,exclude,,swedish-required
+31390535,2026-08-24,exclude,,no-dotnet
+31390766,2026-08-24,include,67,"react,aws,docker,github"
