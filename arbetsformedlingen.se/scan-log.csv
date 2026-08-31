@@ -1012,3 +1012,5 @@ ID,Posted,Decision,Match (%),Reason
 31379756,2026-08-21,exclude,,swedish-required
 31379874,2026-08-21,include,47,vue
 31379924,2026-08-21,include,47,aws
+31379940,2026-08-21,include,53,"react,aws"
+31384481,2026-08-21,exclude,,swedish-required
