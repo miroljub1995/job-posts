@@ -1,1 +1,5 @@
 sheet-config.json
+arbetsformedlingen.se/.scan-cache.json
+*.tmp
+__pycache__/
+*.pyc
